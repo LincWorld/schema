@@ -1,0 +1,71 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://schema.linc.world/draft-01/Device.json",
+  "title": "Device",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique Alphanumeric ID for device"
+    },
+    "owner": {
+      "$ref": "./User.json"
+    },
+    "hardwareVersion": {
+      "type": "string"
+    },
+    "data": {
+      "type": "object",
+      "properties": {
+        "network": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "description": "The type of network being used by the device",
+              "enum": [
+                "https://schema.linc.world/en/nt/gsm",
+                "https://schema.linc.world/en/nt/wifi",
+                "https://schema.linc.world/en/nt/ethernet"
+              ]
+            },
+            "rssi": {
+              "description": "Strength of the signal being received if on a wireless network",
+              "type": "number"
+            },
+            "provider": {
+              "type": "object",
+              "properties": {
+                "mnc": {
+                  "type": "integer",
+                  "description": "Mobile Network Code"
+                },
+                "mcc": {
+                  "type": "integer",
+                  "description": "Mobile Country Code"
+                }
+              }
+            }
+          },
+          "required": [
+            "type"
+          ]
+        }
+      }
+    },
+    "metadata": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "location": {
+          "$ref": "https://geojson.org/schema/Feature.json"
+        }
+      }
+    }
+  }
+}

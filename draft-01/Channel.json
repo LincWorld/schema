@@ -1,0 +1,341 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://schema.linc.world/draft-01/Channel.json",
+  "title": "Channel",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "enum": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15",
+        "16"
+      ],
+      "description": "Position of the channel on the device"
+    },
+    "device": {
+      "$ref": "./Device.json"
+    },
+    "timestamp": {
+      "type": "integer"
+    }
+  },
+  "oneOf": [
+    {
+      "properties": {
+        "sensor": {
+          "title": "Sensor",
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "enum": [
+                "https://schema.linc.world/en/st/ac/ct"
+              ]
+            },
+            "model": {
+              "type": "string",
+              "enum": [
+                "https://schema.linc.world/en/sm/ac/ct/1",
+                "https://schema.linc.world/en/sm/ac/ct/2",
+                "https://schema.linc.world/en/sm/ac/ct/3",
+                "https://schema.linc.world/en/sm/ac/ct/4",
+                "https://schema.linc.world/en/sm/ac/ct/5",
+                "https://schema.linc.world/en/sm/ac/ct/6",
+                "https://schema.linc.world/en/sm/ac/ct/7",
+                "https://schema.linc.world/en/sm/ac/ct/8",
+                "https://schema.linc.world/en/sm/ac/ct/9"
+              ]
+            }
+          }
+        },
+        "data": {
+          "type": "object",
+          "properties": {
+            "phase": {
+              "type": "string",
+              "enum": [
+                "L1",
+                "L2",
+                "L3"
+              ]
+            },
+            "current": {
+              "type": "object",
+              "properties": {
+                "rms": {
+                  "type": "integer"
+                },
+                "peak": {
+                  "type": "integer"
+                },
+                "crestFactor": {
+                  "type": "number"
+                }
+              }
+            },
+            "power": {
+              "type": "object",
+              "properties": {
+                "active": {
+                  "type": "integer"
+                },
+                "reactive": {
+                  "type": "integer"
+                },
+                "apparent": {
+                  "type": "integer"
+                }
+              }
+            },
+            "powerFactor": {
+              "type": "object",
+              "properties": {
+                "truePowerFactor": {
+                  "type": "number"
+                },
+                "displacementPowerFactor": {
+                  "type": "number"
+                },
+                "distortionPowerFactor": {
+                  "type": "number"
+                }
+              }
+            },
+            "energy": {
+              "type": "object",
+              "properties": {
+                "active": {
+                  "type": "integer"
+                },
+                "reactive": {
+                  "type": "integer"
+                },
+                "apparent": {
+                  "type": "integer"
+                }
+              }
+            },
+            "harmonicDistortion": {
+              "title": "Harmonic Distortion",
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "totalHarmonicDistortion": {
+                  "type": "number"
+                },
+                "totalInterharmonicDistortion": {
+                  "type": "number"
+                }
+              }
+            },
+            "harmonicValues": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "bin": {
+                    "type": "integer"
+                  },
+                  "current": {
+                    "type": "integer"
+                  }
+                }
+              },
+              "uniqueItems": true
+            }
+          }
+        }
+      }
+    },
+    {
+      "properties": {
+        "sensor": {
+          "title": "Sensor",
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "enum": [
+                "https://schema.linc.world/en/st/ac/rc"
+              ]
+            },
+            "model": {
+              "type": "string",
+              "enum": [
+                "https://schema.linc.world/en/sm/ac/rc/1",
+                "https://schema.linc.world/en/sm/ac/rc/2",
+                "https://schema.linc.world/en/sm/ac/rc/3",
+                "https://schema.linc.world/en/sm/ac/rc/4",
+                "https://schema.linc.world/en/sm/ac/rc/5",
+                "https://schema.linc.world/en/sm/ac/rc/6",
+                "https://schema.linc.world/en/sm/ac/rc/7",
+                "https://schema.linc.world/en/sm/ac/rc/8",
+                "https://schema.linc.world/en/sm/ac/rc/9"
+              ]
+            }
+          }
+        },
+        "data": {
+          "type": "object",
+          "properties": {
+            "phase": {
+              "type": "string",
+              "enum": [
+                "L1",
+                "L2",
+                "L3"
+              ]
+            },
+            "current": {
+              "type": "object",
+              "properties": {
+                "rms": {
+                  "type": "integer"
+                },
+                "peak": {
+                  "type": "integer"
+                },
+                "crestFactor": {
+                  "type": "number"
+                }
+              }
+            },
+            "power": {
+              "type": "object",
+              "properties": {
+                "active": {
+                  "type": "integer"
+                },
+                "reactive": {
+                  "type": "integer"
+                },
+                "apparent": {
+                  "type": "integer"
+                }
+              }
+            },
+            "powerFactor": {
+              "type": "object",
+              "properties": {
+                "truePowerFactor": {
+                  "type": "number"
+                },
+                "displacementPowerFactor": {
+                  "type": "number"
+                },
+                "distortionPowerFactor": {
+                  "type": "number"
+                }
+              }
+            },
+            "energy": {
+              "type": "object",
+              "properties": {
+                "active": {
+                  "type": "integer"
+                },
+                "reactive": {
+                  "type": "integer"
+                },
+                "apparent": {
+                  "type": "integer"
+                }
+              }
+            },
+            "harmonicDistortion": {
+              "title": "Harmonic Distortion",
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "totalHarmonicDistortion": {
+                  "type": "number"
+                },
+                "totalInterharmonicDistortion": {
+                  "type": "number"
+                }
+              }
+            },
+            "harmonicValues": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "bin": {
+                    "type": "integer"
+                  },
+                  "current": {
+                    "type": "integer"
+                  }
+                }
+              },
+              "uniqueItems": true
+            }
+          }
+        }
+      }
+    },
+    {
+      "properties": {
+        "sensor": {
+          "title": "Sensor",
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "enum": [
+                "https://schema.linc.world/en/st/dc"
+              ]
+            }
+          }
+        },
+        "data": {
+          "type": "object",
+          "properties": {}
+        }
+      }
+    },
+    {
+      "properties": {
+        "sensor": {
+          "title": "Sensor",
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "enum": [
+                "https://schema.linc.world/en/st/temp"
+              ]
+            },
+            "model": {
+              "type": "string",
+              "enum": [
+                "https://schema.linc.world/en/sm/temp/1",
+                "https://schema.linc.world/en/sm/temp/2"
+              ]
+            }
+          }
+        },
+        "data": {
+          "type": "object",
+          "properties": {}
+        }
+      }
+    }
+  ]
+}

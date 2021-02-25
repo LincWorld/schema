@@ -1,0 +1,181 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://schema.linc.world/draft-01/Voltage.json",
+  "title": "Line Voltages",
+  "type": "object",
+  "properties": {
+    "device": {
+      "$ref": "./Device.json"
+    },
+    "timestamp": {
+      "type": "integer"
+    },
+    "data": {
+      "type": "object",
+      "properties": {
+        "L1": {
+          "title": "Line Voltage",
+          "type": "object",
+          "properties": {
+            "voltage": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "rms": {
+                  "type": "integer",
+                  "unit": "millivolt"
+                },
+                "peak": {
+                  "type": "integer"
+                },
+                "crestFactor": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "rms"
+              ]
+            },
+            "harmonicDistortion": {
+              "title": "Harmonic Distortion",
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "totalHarmonicDistortion": {
+                  "type": "number"
+                },
+                "totalInterharmonicDistortion": {
+                  "type": "number"
+                }
+              }
+            },
+            "harmonicValues": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "bin": {
+                    "type": "integer"
+                  },
+                  "voltage": {
+                    "type": "integer"
+                  }
+                }
+              },
+              "uniqueItems": true
+            }
+          }
+        },
+        "L2": {
+          "title": "Line Voltage",
+          "type": "object",
+          "properties": {
+            "voltage": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "rms": {
+                  "type": "integer",
+                  "unit": "millivolt"
+                },
+                "peak": {
+                  "type": "integer"
+                },
+                "crestFactor": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "rms"
+              ]
+            },
+            "harmonicDistortion": {
+              "title": "Harmonic Distortion",
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "totalHarmonicDistortion": {
+                  "type": "number"
+                },
+                "totalInterharmonicDistortion": {
+                  "type": "number"
+                }
+              }
+            },
+            "harmonicValues": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "bin": {
+                    "type": "integer"
+                  },
+                  "voltage": {
+                    "type": "integer"
+                  }
+                }
+              },
+              "uniqueItems": true
+            }
+          }
+        },
+        "L3": {
+          "title": "Line Voltage",
+          "type": "object",
+          "properties": {
+            "voltage": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "rms": {
+                  "type": "integer",
+                  "unit": "millivolt"
+                },
+                "peak": {
+                  "type": "integer"
+                },
+                "crestFactor": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "rms"
+              ]
+            },
+            "harmonicDistortion": {
+              "title": "Harmonic Distortion",
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "totalHarmonicDistortion": {
+                  "type": "number"
+                },
+                "totalInterharmonicDistortion": {
+                  "type": "number"
+                }
+              }
+            },
+            "harmonicValues": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "bin": {
+                    "type": "integer"
+                  },
+                  "voltage": {
+                    "type": "integer"
+                  }
+                }
+              },
+              "uniqueItems": true
+            }
+          }
+        }
+      }
+    }
+  }
+}
