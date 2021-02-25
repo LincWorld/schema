@@ -28,7 +28,7 @@
         "15",
         "16"
       ],
-      "description": "Position of the channel on the device"
+      "description": "Input channel number on Linc device"
     },
     "device": {
       "$ref": "https://schema.linc.world/draft-01/Device.json"
@@ -39,8 +39,7 @@
   },
   "required": [
     "id",
-    "device",
-    "sensor"
+    "device"
   ],
   "oneOf": [
     {
@@ -53,12 +52,14 @@
           "properties": {
             "type": {
               "type": "string",
+              "description": "Type of sensor connected to input channel",
               "enum": [
                 "https://schema.linc.world/en/st/ac/ct"
               ]
             },
             "model": {
               "type": "string",
+              "description": "Model of sensor",
               "enum": [
                 "https://schema.linc.world/en/sm/ac/ct/1",
                 "https://schema.linc.world/en/sm/ac/ct/2",
@@ -89,14 +90,17 @@
               "properties": {
                 "rms": {
                   "type": "integer",
+                  "description": "Root mean square of current (mA)",
                   "minimum": 0
                 },
                 "peak": {
                   "type": "integer",
+                  "description": "Waveform peak of current signal (mA)",
                   "minimum": 0
                 },
                 "crestFactor": {
                   "type": "number",
+                  "description": "Ratio of waveform peaks in sampling period to RMS value",
                   "minimum": 0
                 }
               }
@@ -105,13 +109,16 @@
               "type": "object",
               "properties": {
                 "active": {
-                  "type": "integer"
+                  "type": "integer",
+                  "description": "Active component of power (W)"
                 },
                 "reactive": {
-                  "type": "integer"
+                  "type": "integer",
+                  "description": "Reactive component of power (W)"
                 },
                 "apparent": {
-                  "type": "integer"
+                  "type": "integer",
+                  "description": "Apparent component of power (W)"
                 }
               }
             },
@@ -119,13 +126,16 @@
               "type": "object",
               "properties": {
                 "truePowerFactor": {
-                  "type": "number"
+                  "type": "number",
+                  "description": "Total of displacement and distortion power factors"
                 },
                 "displacementPowerFactor": {
-                  "type": "number"
+                  "type": "number",
+                  "description": "Power factor due to phase shift between voltage and current at the fundamental line frequency"
                 },
                 "distortionPowerFactor": {
-                  "type": "number"
+                  "type": "number",
+                  "description": "Power factor due to harmonic distortions in signal"
                 }
               }
             },
@@ -133,13 +143,16 @@
               "type": "object",
               "properties": {
                 "active": {
-                  "type": "integer"
+                  "type": "integer",
+                  "description": "Active component of energy consumed (mWh)"
                 },
                 "reactive": {
-                  "type": "integer"
+                  "type": "integer",
+                  "description": "Reactive component of energy consumed (mWh)"
                 },
                 "apparent": {
-                  "type": "integer"
+                  "type": "integer",
+                  "description": "Apparent component of energy consumed (mWh)"
                 }
               }
             },
@@ -149,10 +162,12 @@
               "additionalProperties": false,
               "properties": {
                 "totalHarmonicDistortion": {
-                  "type": "number"
+                  "type": "number",
+                  "description": "Percentage of all significant harmonic components to the fundamental line frequency"
                 },
                 "totalInterharmonicDistortion": {
-                  "type": "number"
+                  "type": "number",
+                  "description": "Percentage of all significant inter-harmonic components to the fundamental line frequency"
                 }
               }
             },
@@ -164,10 +179,12 @@
                 "additionalProperties": false,
                 "properties": {
                   "bin": {
-                    "type": "integer"
+                    "type": "integer",
+                    "description": "Frequency bins of harmonic and inter-harmonic subgroups"
                   },
                   "value": {
-                    "type": "number"
+                    "type": "number",
+                    "description": "Percent component of signal in frequency bin"
                   }
                 }
               },
@@ -187,12 +204,14 @@
           "properties": {
             "type": {
               "type": "string",
+              "description": "Type of sensor connected to input channel",
               "enum": [
                 "https://schema.linc.world/en/st/ac/rc"
               ]
             },
             "model": {
               "type": "string",
+              "description": "Model of sensor",
               "enum": [
                 "https://schema.linc.world/en/sm/ac/rc/1",
                 "https://schema.linc.world/en/sm/ac/rc/2",
@@ -223,14 +242,17 @@
               "properties": {
                 "rms": {
                   "type": "integer",
+                  "description": "Root mean square of current (mA)",
                   "minimum": 0
                 },
                 "peak": {
                   "type": "integer",
+                  "description": "Waveform peak of current signal (mA)",
                   "minimum": 0
                 },
                 "crestFactor": {
                   "type": "number",
+                  "description": "Ratio of waveform peaks in sampling period to RMS value",
                   "minimum": 0
                 }
               }
@@ -239,13 +261,16 @@
               "type": "object",
               "properties": {
                 "active": {
-                  "type": "integer"
+                  "type": "integer",
+                  "description": "Active component of power (W)"
                 },
                 "reactive": {
-                  "type": "integer"
+                  "type": "integer",
+                  "description": "Reactive component of power (W)"
                 },
                 "apparent": {
-                  "type": "integer"
+                  "type": "integer",
+                  "description": "Apparent component of power (W)"
                 }
               }
             },
@@ -253,13 +278,16 @@
               "type": "object",
               "properties": {
                 "truePowerFactor": {
-                  "type": "number"
+                  "type": "number",
+                  "description": "Total of displacement and distortion power factors"
                 },
                 "displacementPowerFactor": {
-                  "type": "number"
+                  "type": "number",
+                  "description": "Power factor due to phase shift between voltage and current at the fundamental line frequency"
                 },
                 "distortionPowerFactor": {
-                  "type": "number"
+                  "type": "number",
+                  "description": "Power factor due to harmonic distortions in signal"
                 }
               }
             },
@@ -267,13 +295,16 @@
               "type": "object",
               "properties": {
                 "active": {
-                  "type": "integer"
+                  "type": "integer",
+                  "description": "Active component of energy consumed (mWh)"
                 },
                 "reactive": {
-                  "type": "integer"
+                  "type": "integer",
+                  "description": "Reactive component of energy consumed (mWh)"
                 },
                 "apparent": {
-                  "type": "integer"
+                  "type": "integer",
+                  "description": "Apparent component of energy consumed (mWh)"
                 }
               }
             },
@@ -283,10 +314,12 @@
               "additionalProperties": false,
               "properties": {
                 "totalHarmonicDistortion": {
-                  "type": "number"
+                  "type": "number",
+                  "description": "Percentage of all significant harmonic components to the fundamental line frequency"
                 },
                 "totalInterharmonicDistortion": {
-                  "type": "number"
+                  "type": "number",
+                  "description": "Percentage of all significant inter-harmonic components to the fundamental line frequency"
                 }
               }
             },
@@ -298,10 +331,12 @@
                 "additionalProperties": false,
                 "properties": {
                   "bin": {
-                    "type": "integer"
+                    "type": "integer",
+                    "description": "Frequency bins of harmonic and inter-harmonic subgroups"
                   },
                   "value": {
-                    "type": "number"
+                    "type": "number",
+                    "description": "Percent component of signal in frequency bin"
                   }
                 }
               },
@@ -321,6 +356,7 @@
           "properties": {
             "type": {
               "type": "string",
+              "description": "Type of sensor connected to input channel",
               "enum": [
                 "https://schema.linc.world/en/st/dc"
               ]
@@ -343,12 +379,14 @@
           "properties": {
             "type": {
               "type": "string",
+              "description": "Type of sensor connected to input channel",
               "enum": [
                 "https://schema.linc.world/en/st/temp"
               ]
             },
             "model": {
               "type": "string",
+              "description": "Model of sensor",
               "enum": [
                 "https://schema.linc.world/en/sm/temp/1",
                 "https://schema.linc.world/en/sm/temp/2"

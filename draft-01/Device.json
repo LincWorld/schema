@@ -10,13 +10,14 @@
     },
     "id": {
       "type": "string",
-      "description": "Unique Alphanumeric ID for device"
+      "description": "Unique Alphanumeric ID of Linc device"
     },
     "owner": {
       "$ref": "https://schema.linc.world/draft-01/User.json"
     },
     "hardwareVersion": {
-      "type": "string"
+      "type": "string",
+      "description": "Version of Linc Device"
     },
     "data": {
       "type": "object",
@@ -26,7 +27,7 @@
           "properties": {
             "type": {
               "type": "string",
-              "description": "The type of network being used by the device",
+              "description": "Active network interface",
               "enum": [
                 "https://schema.linc.world/en/nt/gsm",
                 "https://schema.linc.world/en/nt/wifi",
@@ -34,7 +35,7 @@
               ]
             },
             "rssi": {
-              "description": "Strength of the signal being received if on a wireless network",
+              "description": "Received Signal Strength Indicator",
               "type": "number",
               "minimum": 0,
               "maximum": 100
