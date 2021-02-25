@@ -5,6 +5,7 @@
   "type": "object",
   "properties": {
     "entityType": {
+      "type": "string",
       "const": "user"
     },
     "id": {

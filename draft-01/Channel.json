@@ -5,6 +5,7 @@
   "type": "object",
   "properties": {
     "entityType": {
+      "type": "string",
       "const": "channel"
     },
     "id": {
@@ -30,7 +31,7 @@
       "description": "Position of the channel on the device"
     },
     "device": {
-      "$ref": "./Device.json"
+      "$ref": "Device.json"
     },
     "timestamp": {
       "type": "integer"
@@ -43,6 +44,8 @@
   ],
   "oneOf": [
     {
+      "title": "Channel with Current Transformer",
+      "type": "object",
       "properties": {
         "sensor": {
           "title": "Sensor",
@@ -171,6 +174,8 @@
       }
     },
     {
+      "title": "Channel with Rogowski Coil",
+      "type": "object",
       "properties": {
         "sensor": {
           "title": "Sensor",
@@ -299,6 +304,8 @@
       }
     },
     {
+      "title": "Channel with DC Input",
+      "type": "object",
       "properties": {
         "sensor": {
           "title": "Sensor",
@@ -319,6 +326,8 @@
       }
     },
     {
+      "title": "Channel with Temperature Sensor",
+      "type": "object",
       "properties": {
         "sensor": {
           "title": "Sensor",

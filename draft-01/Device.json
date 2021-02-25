@@ -5,6 +5,7 @@
   "type": "object",
   "properties": {
     "entityType": {
+      "type": "string",
       "const": "device"
     },
     "id": {
@@ -12,7 +13,7 @@
       "description": "Unique Alphanumeric ID for device"
     },
     "owner": {
-      "$ref": "./User.json"
+      "$ref": "User.json"
     },
     "hardwareVersion": {
       "type": "string"

@@ -5,10 +5,11 @@
   "type": "object",
   "properties": {
     "entityType": {
+      "type": "string",
       "const": "voltage"
     },
     "device": {
-      "$ref": "./Device.json"
+      "$ref": "Device.json"
     },
     "timestamp": {
       "type": "integer"
