@@ -4,6 +4,9 @@
   "title": "User",
   "type": "object",
   "properties": {
+    "entityType": {
+      "const": "user"
+    },
     "id": {
       "type": "string",
       "format": "uuid"

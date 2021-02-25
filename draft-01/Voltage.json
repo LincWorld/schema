@@ -4,6 +4,9 @@
   "title": "Line Voltages",
   "type": "object",
   "properties": {
+    "entityType": {
+      "const": "voltage"
+    },
     "device": {
       "$ref": "./Device.json"
     },
@@ -177,5 +180,8 @@
         }
       }
     }
-  }
+  },
+  "required": [
+    "device"
+  ]
 }

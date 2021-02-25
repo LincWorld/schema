@@ -4,6 +4,9 @@
   "title": "Channel",
   "type": "object",
   "properties": {
+    "entityType": {
+      "const": "channel"
+    },
     "id": {
       "type": "string",
       "enum": [
@@ -33,6 +36,11 @@
       "type": "integer"
     }
   },
+  "required": [
+    "id",
+    "device",
+    "sensor"
+  ],
   "oneOf": [
     {
       "properties": {

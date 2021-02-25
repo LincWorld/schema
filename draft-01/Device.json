@@ -4,6 +4,9 @@
   "title": "Device",
   "type": "object",
   "properties": {
+    "entityType": {
+      "const": "device"
+    },
     "id": {
       "type": "string",
       "description": "Unique Alphanumeric ID for device"
