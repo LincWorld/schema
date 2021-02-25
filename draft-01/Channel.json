@@ -31,7 +31,7 @@
       "description": "Position of the channel on the device"
     },
     "device": {
-      "$ref": "Device.json"
+      "$ref": "https://schema.linc.world/draft-01/Device.json"
     },
     "timestamp": {
       "type": "integer"
@@ -88,13 +88,16 @@
               "type": "object",
               "properties": {
                 "rms": {
-                  "type": "integer"
+                  "type": "integer",
+                  "minimum": 0
                 },
                 "peak": {
-                  "type": "integer"
+                  "type": "integer",
+                  "minimum": 0
                 },
                 "crestFactor": {
-                  "type": "number"
+                  "type": "number",
+                  "minimum": 0
                 }
               }
             },
@@ -156,14 +159,15 @@
             "harmonicValues": {
               "type": "array",
               "items": {
+                "title": "Harmonic Values",
                 "type": "object",
                 "additionalProperties": false,
                 "properties": {
                   "bin": {
                     "type": "integer"
                   },
-                  "current": {
-                    "type": "integer"
+                  "value": {
+                    "type": "number"
                   }
                 }
               },
@@ -218,13 +222,16 @@
               "type": "object",
               "properties": {
                 "rms": {
-                  "type": "integer"
+                  "type": "integer",
+                  "minimum": 0
                 },
                 "peak": {
-                  "type": "integer"
+                  "type": "integer",
+                  "minimum": 0
                 },
                 "crestFactor": {
-                  "type": "number"
+                  "type": "number",
+                  "minimum": 0
                 }
               }
             },
@@ -286,14 +293,15 @@
             "harmonicValues": {
               "type": "array",
               "items": {
+                "title": "Harmonic Values",
                 "type": "object",
                 "additionalProperties": false,
                 "properties": {
                   "bin": {
                     "type": "integer"
                   },
-                  "current": {
-                    "type": "integer"
+                  "value": {
+                    "type": "number"
                   }
                 }
               },

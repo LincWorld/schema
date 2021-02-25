@@ -8,176 +8,72 @@
       "type": "string",
       "const": "voltage"
     },
+    "id": {
+      "type": "string",
+      "enum": [
+        "L1",
+        "L2",
+        "L3"
+      ]
+    },
     "device": {
-      "$ref": "Device.json"
+      "$ref": "https://schema.linc.world/draft-01/Device.json"
     },
     "timestamp": {
       "type": "integer"
     },
     "data": {
+      "title": "Line Voltage",
       "type": "object",
       "properties": {
-        "L1": {
-          "title": "Line Voltage",
+        "voltage": {
           "type": "object",
+          "additionalProperties": false,
           "properties": {
-            "voltage": {
-              "type": "object",
-              "additionalProperties": false,
-              "properties": {
-                "rms": {
-                  "type": "integer",
-                  "unit": "millivolt"
-                },
-                "peak": {
-                  "type": "integer"
-                },
-                "crestFactor": {
-                  "type": "number"
-                }
-              },
-              "required": [
-                "rms"
-              ]
+            "rms": {
+              "type": "integer",
+              "unit": "millivolt"
             },
-            "harmonicDistortion": {
-              "title": "Harmonic Distortion",
-              "type": "object",
-              "additionalProperties": false,
-              "properties": {
-                "totalHarmonicDistortion": {
-                  "type": "number"
-                },
-                "totalInterharmonicDistortion": {
-                  "type": "number"
-                }
-              }
+            "peak": {
+              "type": "integer"
             },
-            "harmonicValues": {
-              "type": "array",
-              "items": {
-                "type": "object",
-                "additionalProperties": false,
-                "properties": {
-                  "bin": {
-                    "type": "integer"
-                  },
-                  "voltage": {
-                    "type": "integer"
-                  }
-                }
-              },
-              "uniqueItems": true
+            "crestFactor": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "rms"
+          ]
+        },
+        "harmonicDistortion": {
+          "title": "Harmonic Distortion",
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "totalHarmonicDistortion": {
+              "type": "number"
+            },
+            "totalInterharmonicDistortion": {
+              "type": "number"
             }
           }
         },
-        "L2": {
-          "title": "Line Voltage",
-          "type": "object",
-          "properties": {
-            "voltage": {
-              "type": "object",
-              "additionalProperties": false,
-              "properties": {
-                "rms": {
-                  "type": "integer",
-                  "unit": "millivolt"
-                },
-                "peak": {
-                  "type": "integer"
-                },
-                "crestFactor": {
-                  "type": "number"
-                }
+        "harmonicValues": {
+          "type": "array",
+          "items": {
+            "title": "Harmonic Values",
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "bin": {
+                "type": "integer"
               },
-              "required": [
-                "rms"
-              ]
-            },
-            "harmonicDistortion": {
-              "title": "Harmonic Distortion",
-              "type": "object",
-              "additionalProperties": false,
-              "properties": {
-                "totalHarmonicDistortion": {
-                  "type": "number"
-                },
-                "totalInterharmonicDistortion": {
-                  "type": "number"
-                }
+              "value": {
+                "type": "number"
               }
-            },
-            "harmonicValues": {
-              "type": "array",
-              "items": {
-                "type": "object",
-                "additionalProperties": false,
-                "properties": {
-                  "bin": {
-                    "type": "integer"
-                  },
-                  "voltage": {
-                    "type": "integer"
-                  }
-                }
-              },
-              "uniqueItems": true
             }
-          }
-        },
-        "L3": {
-          "title": "Line Voltage",
-          "type": "object",
-          "properties": {
-            "voltage": {
-              "type": "object",
-              "additionalProperties": false,
-              "properties": {
-                "rms": {
-                  "type": "integer",
-                  "unit": "millivolt"
-                },
-                "peak": {
-                  "type": "integer"
-                },
-                "crestFactor": {
-                  "type": "number"
-                }
-              },
-              "required": [
-                "rms"
-              ]
-            },
-            "harmonicDistortion": {
-              "title": "Harmonic Distortion",
-              "type": "object",
-              "additionalProperties": false,
-              "properties": {
-                "totalHarmonicDistortion": {
-                  "type": "number"
-                },
-                "totalInterharmonicDistortion": {
-                  "type": "number"
-                }
-              }
-            },
-            "harmonicValues": {
-              "type": "array",
-              "items": {
-                "type": "object",
-                "additionalProperties": false,
-                "properties": {
-                  "bin": {
-                    "type": "integer"
-                  },
-                  "voltage": {
-                    "type": "integer"
-                  }
-                }
-              },
-              "uniqueItems": true
-            }
-          }
+          },
+          "uniqueItems": true
         }
       }
     }
