@@ -8,16 +8,13 @@ module.exports = {
 			type: "string",
 			const: "voltage"
 		},
-		id:{
+		id: {
 			type: "string",
 			enum: enums.phases
 		},
 		device: {
 			$ref: "./Device.json"
 		},
-		timestamp: {
-			"type": "integer"
-		},
 		data: LineVoltage
 	}
-}
+};

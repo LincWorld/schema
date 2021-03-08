@@ -5,14 +5,17 @@ module.exports = {
 	title: "Line Voltage",
 	type: "object",
 	properties: {
+		timestamp: {
+			"type": "integer"
+		},
 		voltage: {
 			type: "object",
-			description:"Phase to neutral voltage",
+			description: "Phase to neutral voltage",
 			additionalProperties: false,
 			properties: {
 				rms: {
 					type: "integer",
-					description:"Root mean square of voltage (mV)",
+					description: "Root mean square of voltage (mV)",
 					minimum: 0
 				},
 				peak: {
@@ -36,4 +39,4 @@ module.exports = {
 			uniqueItems: true
 		}
 	}
-}
+};

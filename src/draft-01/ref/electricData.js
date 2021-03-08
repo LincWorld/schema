@@ -4,7 +4,10 @@ const harmonicValues = require("./harmonicValues");
 module.exports = {
 	type: "object",
 	properties: {
-		"phase": {
+		timestamp: {
+			"type": "integer"
+		},
+		phase: {
 			type: "string",
 			enum: enums.phases
 		},
@@ -86,4 +89,4 @@ module.exports = {
 			uniqueItems: true
 		}
 	}
-}
+};

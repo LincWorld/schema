@@ -21,6 +21,9 @@ module.exports = {
 		data: {
 			type: "object",
 			properties: {
+				timestamp: {
+					"type": "integer"
+				},
 				network: {
 					type: "object",
 					properties: {
@@ -30,10 +33,9 @@ module.exports = {
 							enum: [enums.networkTypes.gsm, enums.networkTypes.wifi, enums.networkTypes.ethernet]
 						},
 						rssi: {
-							description: "Received Signal Strength Indicator",
+							description: "Received Signal Strength Indicator (dB)",
 							type: "number",
-							"minimum": 0,
-							"maximum": 100
+							"maximum": -1
 						},
 						provider: {
 							type: "object",
@@ -67,4 +69,4 @@ module.exports = {
 			}
 		}
 	}
-}
+};

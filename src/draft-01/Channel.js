@@ -15,9 +15,6 @@ module.exports = {
 		},
 		device: {
 			$ref: "./Device.json"
-		},
-		timestamp: {
-			"type": "integer"
 		}
 	},
 	oneOf: [
@@ -81,7 +78,12 @@ module.exports = {
 					}
 				},
 				data: {
-					type: "object", properties: {}
+					type: "object", properties: {
+
+						timestamp: {
+							"type": "integer"
+						}
+					}
 				}
 			}
 		}, {
@@ -105,9 +107,13 @@ module.exports = {
 					}
 				},
 				data: {
-					type: "object", properties: {}
+					type: "object", properties: {
+						timestamp: {
+							"type": "integer"
+						}
+					}
 				}
 			}
 		}
 	]
-}
+};
