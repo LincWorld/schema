@@ -20,71 +20,75 @@
       "$ref": "https://schema.linc.world/draft-01/Device.json"
     },
     "data": {
-      "title": "Line Voltage",
-      "type": "object",
-      "properties": {
-        "timestamp": {
-          "type": "integer"
-        },
-        "voltage": {
-          "type": "object",
-          "description": "Phase to neutral voltage",
-          "additionalProperties": false,
-          "properties": {
-            "rms": {
-              "type": "integer",
-              "description": "Root mean square of voltage (mV)",
-              "minimum": 0
-            },
-            "peak": {
-              "type": "integer",
-              "description": "Waveform peak of voltage signal (mV)",
-              "minimum": 0
-            },
-            "crestFactor": {
-              "type": "number",
-              "description": "Ratio of waveform peaks in sampling period to RMS value"
-            }
+      "type": "array",
+      "items": {
+        "title": "Line Voltage",
+        "type": "object",
+        "properties": {
+          "timestamp": {
+            "type": "integer"
           },
-          "required": [
-            "rms"
-          ]
-        },
-        "harmonicDistortion": {
-          "title": "Harmonic Distortion",
-          "type": "object",
-          "additionalProperties": false,
-          "properties": {
-            "totalHarmonicDistortion": {
-              "type": "number",
-              "description": "Percentage of all significant harmonic components to the fundamental line frequency"
+          "voltage": {
+            "type": "object",
+            "description": "Phase to neutral voltage",
+            "additionalProperties": false,
+            "properties": {
+              "rms": {
+                "type": "integer",
+                "description": "Root mean square of voltage (mV)",
+                "minimum": 0
+              },
+              "peak": {
+                "type": "integer",
+                "description": "Waveform peak of voltage signal (mV)",
+                "minimum": 0
+              },
+              "crestFactor": {
+                "type": "number",
+                "description": "Ratio of waveform peaks in sampling period to RMS value"
+              }
             },
-            "totalInterharmonicDistortion": {
-              "type": "number",
-              "description": "Percentage of all significant inter-harmonic components to the fundamental line frequency"
-            }
-          }
-        },
-        "harmonicValues": {
-          "type": "array",
-          "items": {
-            "title": "Harmonic Values",
+            "required": [
+              "rms"
+            ]
+          },
+          "harmonicDistortion": {
+            "title": "Harmonic Distortion",
             "type": "object",
             "additionalProperties": false,
             "properties": {
-              "bin": {
-                "type": "integer",
-                "description": "Frequency bins of harmonic and inter-harmonic subgroups"
-              },
-              "value": {
+              "totalHarmonicDistortion": {
                 "type": "number",
-                "description": "Percent component of signal in frequency bin"
+                "description": "Percentage of all significant harmonic components to the fundamental line frequency"
+              },
+              "totalInterharmonicDistortion": {
+                "type": "number",
+                "description": "Percentage of all significant inter-harmonic components to the fundamental line frequency"
               }
             }
           },
-          "uniqueItems": true
+          "harmonicValues": {
+            "type": "array",
+            "items": {
+              "title": "Harmonic Values",
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "bin": {
+                  "type": "integer",
+                  "description": "Frequency bins of harmonic and inter-harmonic subgroups"
+                },
+                "value": {
+                  "type": "number",
+                  "description": "Percent component of signal in frequency bin"
+                }
+              }
+            },
+            "uniqueItems": true
+          }
         }
-      }
+      },
+      "uniqueItems": true
     }
   }
 }
