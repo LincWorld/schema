@@ -32,9 +32,6 @@
     },
     "device": {
       "$ref": "https://schema.linc.world/draft-01/Device.json"
-    },
-    "timestamp": {
-      "type": "integer"
     }
   },
   "oneOf": [
@@ -73,6 +70,9 @@
         "data": {
           "type": "object",
           "properties": {
+            "timestamp": {
+              "type": "integer"
+            },
             "phase": {
               "type": "string",
               "enum": [
@@ -225,6 +225,9 @@
         "data": {
           "type": "object",
           "properties": {
+            "timestamp": {
+              "type": "integer"
+            },
             "phase": {
               "type": "string",
               "enum": [
@@ -361,7 +364,11 @@
         },
         "data": {
           "type": "object",
-          "properties": {}
+          "properties": {
+            "timestamp": {
+              "type": "integer"
+            }
+          }
         }
       }
     },
@@ -392,7 +399,11 @@
         },
         "data": {
           "type": "object",
-          "properties": {}
+          "properties": {
+            "timestamp": {
+              "type": "integer"
+            }
+          }
         }
       }
     }

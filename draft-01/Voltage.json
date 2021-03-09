@@ -19,13 +19,13 @@
     "device": {
       "$ref": "https://schema.linc.world/draft-01/Device.json"
     },
-    "timestamp": {
-      "type": "integer"
-    },
     "data": {
       "title": "Line Voltage",
       "type": "object",
       "properties": {
+        "timestamp": {
+          "type": "integer"
+        },
         "voltage": {
           "type": "object",
           "description": "Phase to neutral voltage",
