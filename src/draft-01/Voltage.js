@@ -15,6 +15,10 @@ module.exports = {
 		device: {
 			$ref: "./Device.json"
 		},
-		data: LineVoltage
+		data: {
+			type: "array",
+			items: LineVoltage,
+			uniqueItems: true
+		}
 	}
 };

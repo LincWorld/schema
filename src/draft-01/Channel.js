@@ -38,7 +38,11 @@ module.exports = {
 						}
 					}
 				},
-				data: electricData
+				data: {
+					type: "array",
+					items: electricData,
+					uniqueItems: true
+				}
 			}
 		}, {
 			title: "Channel with Rogowski Coil",
@@ -60,7 +64,11 @@ module.exports = {
 						}
 					}
 				},
-				data: electricData
+				data: {
+					type: "array",
+					items: electricData,
+					uniqueItems: true
+				}
 			}
 		}, {
 			title: "Channel with DC Input",
@@ -78,12 +86,16 @@ module.exports = {
 					}
 				},
 				data: {
-					type: "object", properties: {
-
-						timestamp: {
-							"type": "integer"
+					type: "array",
+					items: {
+						type: "object",
+						properties: {
+							timestamp: {
+								"type": "integer"
+							}
 						}
-					}
+					},
+					uniqueItems: true
 				}
 			}
 		}, {
@@ -107,11 +119,20 @@ module.exports = {
 					}
 				},
 				data: {
-					type: "object", properties: {
-						timestamp: {
-							"type": "integer"
+					type: "array",
+					items: {
+						type: "object",
+						properties: {
+							timestamp: {
+								"type": "integer"
+							},
+							temperature:{
+								type: "number",
+								description: "Temperature (°C)",
+							}
 						}
-					}
+					},
+					uniqueItems: true
 				}
 			}
 		}

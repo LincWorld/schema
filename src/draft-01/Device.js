@@ -19,40 +19,44 @@ module.exports = {
 			description: "Version of Linc Device"
 		},
 		data: {
-			type: "object",
-			properties: {
-				timestamp: {
-					"type": "integer"
-				},
-				network: {
-					type: "object",
-					properties: {
-						type: {
-							type: "string",
-							description: "Active network interface",
-							enum: [enums.networkTypes.gsm, enums.networkTypes.wifi, enums.networkTypes.ethernet]
-						},
-						rssi: {
-							description: "Received Signal Strength Indicator (dB)",
-							type: "number",
-							"maximum": -1
-						},
-						provider: {
-							type: "object",
-							properties: {
-								mnc: {
-									type: "integer",
-									description: "Mobile Network Code"
-								},
-								mcc: {
-									type: "integer",
-									description: "Mobile Country Code"
+			type: "array",
+			items: {
+				type: "object",
+				properties: {
+					timestamp: {
+						"type": "integer"
+					},
+					network: {
+						type: "object",
+						properties: {
+							type: {
+								type: "string",
+								description: "Active network interface",
+								enum: [enums.networkTypes.gsm, enums.networkTypes.wifi, enums.networkTypes.ethernet]
+							},
+							rssi: {
+								description: "Received Signal Strength Indicator (dB)",
+								type: "number",
+								"maximum": -1
+							},
+							provider: {
+								type: "object",
+								properties: {
+									mnc: {
+										type: "integer",
+										description: "Mobile Network Code"
+									},
+									mcc: {
+										type: "integer",
+										description: "Mobile Country Code"
+									}
 								}
 							}
 						}
 					}
 				}
-			}
+			},
+			uniqueItems: true
 		},
 		metadata: {
 			type: "object",
