@@ -187,6 +187,17 @@
 																		}
 																	}
 																},
+																"neutral": {
+																	"title": "Neutral",
+																	"description": "Neutral Description",
+																	"type": "object",
+																	"properties": {
+																		"current": {
+																			"type": "object",
+																			"$ref": "#/components/schemas/attributes/properties/electrical/properties/ac/properties/current"
+																		}
+																	}
+																},
 																"frequency": {
 																	"$ref": "#/components/schemas/attributes/properties/electrical/properties/ac/properties/frequency"
 																}
@@ -663,7 +674,7 @@
 								"const": "bad_model_fit",
 								"name": "Bad model fit",
 								"description": "Model fit is for some reason bad, and caution should be taken with regard to its accuracy and decisions made based on it"
-							}, ]
+							}]
 						}
 					},
 					"forecast": {
