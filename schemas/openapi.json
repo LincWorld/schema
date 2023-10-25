@@ -87373,7 +87373,7 @@
 														},
 														"parent_node": {
 															"description": "Parent node in a mesh network refers to an immediate upstream node to which another node (typically referred to as the child node) is directly connected. The parent node helps the child node with tasks like routing data, establishing connectivity, or maintaining the network hierarchy within the mesh topology.",
-															"example": "100D",
+															"example": "100C",
 															"name": "Parent Node",
 															"pattern": "^[123456789ABCDEFGHJKLMNPQRSTUVWXYZ]{1}[0123456789ABCDEFGHJKLMNPQRSTUVWXYZ]{3,5}$",
 															"type": "string"
@@ -87603,7 +87603,7 @@
 												},
 												"response": {
 													"description": "Parent node in a mesh network refers to an immediate upstream node to which another node (typically referred to as the child node) is directly connected. The parent node helps the child node with tasks like routing data, establishing connectivity, or maintaining the network hierarchy within the mesh topology.",
-													"example": "100B",
+													"example": "100A",
 													"name": "Parent Node",
 													"pattern": "^[123456789ABCDEFGHJKLMNPQRSTUVWXYZ]{1}[0123456789ABCDEFGHJKLMNPQRSTUVWXYZ]{3,5}$",
 													"title": "Parent Node",
