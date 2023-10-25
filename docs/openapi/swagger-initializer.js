@@ -13,7 +13,7 @@ window.onload = function() {
     plugins: [
       SwaggerUIBundle.plugins.DownloadUrl
     ],
-    queryConfigEnabled: true,layout: "StandaloneLayout"
+    queryConfigEnabled: true,queryConfigEnabled: true,showCommonExtensions:true,docExpansion:"none",layout: "StandaloneLayout"
   });
 
   //</editor-fold>
