@@ -46,6 +46,7 @@ const main = async () => {
 	await fs.copyFile("./schemas/asyncapi.json", "./docs/asyncapi.json");
 	await fs.copyFile("./schemas/openapi.json", "./docs/openapi.json");
 	await fs.writeFile("./docs/index.html", "");
+	await fs.writeFile("./docs/CNAME", "schema.linc.world");
 }
 
 main();
