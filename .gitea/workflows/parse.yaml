@@ -1,0 +1,32 @@
+name: Publish pages to GitHub
+run-name: Publish on commit
+on:
+  push:
+    paths-ignore:
+      - docs/**
+
+jobs:
+  Parse-Xmind:
+    permissions:
+      # Give the default GITHUB_TOKEN write permission to commit and push the
+      # added or changed files to the repository.
+      contents: write
+    steps:
+      - run: echo "The job was automatically triggered by a ${{ gitea.event_name }} event."
+      - run: echo "This job is now running on a ${{ runner.os }} server hosted by Gitea!"
+      - run: echo "The name of your branch is ${{ gitea.ref }} and your repository is ${{ gitea.repository }}."
+      - uses: actions/setup-node@v3
+        with:
+          node-version: lts
+      - name: Check out repository code
+        uses: actions/checkout@v3
+      - run: echo "The ${{ gitea.repository }} repository has been cloned to the runner."
+      - run: echo "Compiling..."
+      - run: node index.js
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Publish pages
+          commit_user_name: Actions Bot
+          commit_user_email: actions-bot@users.noreply.github.com
+          commit_author: Actions Bot <actions-bot@users.noreply.github.com>
+      - run: echo "This job's status is ${{ job.status }}."
