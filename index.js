@@ -35,7 +35,7 @@ const downloadSwagger = async () => {
 		Promise.all([
 			fs.readFile("./docs/openapi/swagger-initializer.js", "utf8").then((content) => {
 				content = content.replace(/petstore\.swagger\.io\/v2\/swagger\.json/m, "schema.linc.world/openapi.json");
-				content = content.replace(/layout:/m, "queryConfigEnabled: true,layout:");
+				content = content.replace(/layout:/m, "queryConfigEnabled: true,showCommonExtensions:true,docExpansion:\"none\",layout:");
 				fs.writeFile("./docs/openapi/swagger-initializer.js", content);
 			}),
 		])
