@@ -2,6 +2,8 @@ name: Publish pages to GitHub
 run-name: Publish on commit
 on:
   push:
+    paths:
+      - **
     paths-ignore:
       - docs/**
 
