@@ -1,0 +1,805 @@
+{
+	"openapi": "3.1.0",
+	"info": {
+		"title": "Example",
+		"summary": "Some Summary",
+		"description": "Some description",
+		"termsOfService": "http://www.example.com/",
+		"contact": {
+			"name": "Example",
+			"url": "http://www.example.com/contact/",
+			"email": "contact@example.com"
+		},
+		"license": {
+			"name": "AGPL-3.0",
+			"identifier": "(AGPL-3.0+)"
+		},
+		"version": "1.0.0"
+	},
+	"servers": [{
+		"url": "https://www.example.com"
+	}],
+	"tags": [],
+	"webhooks": {},
+	"paths": {
+		"/activate/temperature": {
+			"post": {
+				"summary": "Activate Temperature Forecast Microservice",
+				"requestBody": {
+					"content": {
+						"application/json": {
+							"schema": {
+								"type": "object",
+								"properties": {
+									"substation": {
+										"title": "Substation",
+										"description": "Substation Description",
+										"type": "object",
+										"properties": {
+											"id": {
+												"type": "string",
+												"format": "uuid"
+											},
+											"metadata": {
+												"type": "object",
+												"properties": {
+													"label": {
+														"title": "Label",
+														"description": "Label Description",
+														"type": "string"
+													},
+													"model": {
+														"title": "Model",
+														"description": "Model Description",
+														"type": "object"
+													},
+													"location": {
+														"title": "Location",
+														"description": "Location Description",
+														"type": "object",
+														"properties": {
+															"latitude": {
+																"title": "Latitude",
+																"description": "Angular distance north or south of the equator, measured in degrees (°). Positive values indicate northern hemisphere; negative values indicate southern hemisphere.",
+																"type": "number",
+																"minimum":-90,
+																"maximum":90,
+																"multipleOf":0.000001
+															},
+															"longitude": {
+																"title": "Longitude",
+																"description": "Angular distance east or west of the Prime Meridian, measured in degrees (°). Positive values indicate east; negative values indicate west.",
+																"type": "number",
+																"minimum":-180,
+																"maximum":180,
+																"multipleOf":0.000001
+															},
+															"elevation": {
+																"title": "Elevation",
+																"description": "Height relative to sea level.",
+																"type": "number",
+																"minimum":-100000,
+																"maximum":100000,
+																"multipleOf":0.001
+															}
+														}
+													}
+												}
+											}
+										}
+									},
+									"transformer": {
+										"title": "Transformer",
+										"description": "Transformer Description",
+										"type": "object",
+										"properties": {
+											"metadata": {
+												"type": "object",
+												"properties": {
+													"label": {
+														"title": "Label",
+														"description": "Label Description",
+														"type": "string"
+													},
+													"model": {
+														"title": "Model",
+														"description": "Model Description",
+														"type": "object"
+													},
+													"nameplate": {
+														"title": "Nameplate",
+														"description": "Nameplate Description",
+														"type": "object"
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				},
+				"responses": {
+					"200": {
+						"description": "Successful operation"
+					}
+				}
+			}
+		},
+		"/forecast/temperature": {
+			"post": {
+				"summary": "Push data and get Temperature Forecast",
+				"requestBody": {
+					"content": {
+						"application/json": {
+							"schema": {
+								"type": "array",
+								"items": {
+									"type": "object",
+									"properties": {
+										"substation": {
+											"title": "Substation",
+											"description": "Substation Description",
+											"type": "object",
+											"properties": {
+												"id": {
+													"type": "string",
+													"format": "uuid"
+												}
+											}
+										},
+										"transformer": {
+											"title": "Transformer",
+											"description": "Transformer Description",
+											"type": "object",
+											"properties": {
+												"electrical": {
+													"title": "Electrical",
+													"description": "Electrical Description",
+													"type": "object",
+													"properties": {
+														"secondary": {
+															"title": "Secondary",
+															"description": "Secondary Description",
+															"type": "object",
+															"properties": {
+																"line_1": {
+																	"title": "L1",
+																	"description": "L1 Description",
+																	"type": "object",
+																	"properties": {
+																		"voltage": {
+																			"type": "object",
+																			"$ref": "#/components/schemas/attributes/properties/electrical/properties/ac/properties/voltage"
+																		},
+																		"current": {
+																			"type": "object",
+																			"$ref": "#/components/schemas/attributes/properties/electrical/properties/ac/properties/current"
+																		},
+																		"power": {
+																			"type": "object",
+																			"$ref": "#/components/schemas/attributes/properties/electrical/properties/ac/properties/power"
+																		},
+																		"energy": {
+																			"type": "object",
+																			"$ref": "#/components/schemas/attributes/properties/electrical/properties/ac/properties/energy"
+																		}
+																	}
+																},
+																"line_2": {
+																	"title": "L2",
+																	"description": "L2 Description",
+																	"type": "object",
+																	"properties": {
+																		"voltage": {
+																			"type": "object",
+																			"$ref": "#/components/schemas/attributes/properties/electrical/properties/ac/properties/voltage"
+																		},
+																		"current": {
+																			"type": "object",
+																			"$ref": "#/components/schemas/attributes/properties/electrical/properties/ac/properties/current"
+																		},
+																		"power": {
+																			"type": "object",
+																			"$ref": "#/components/schemas/attributes/properties/electrical/properties/ac/properties/power"
+																		},
+																		"energy": {
+																			"type": "object",
+																			"$ref": "#/components/schemas/attributes/properties/electrical/properties/ac/properties/energy"
+																		}
+																	}
+																},
+																"line_3": {
+																	"title": "L3",
+																	"description": "L3 Description",
+																	"type": "object",
+																	"properties": {
+																		"voltage": {
+																			"type": "object",
+																			"$ref": "#/components/schemas/attributes/properties/electrical/properties/ac/properties/voltage"
+																		},
+																		"current": {
+																			"type": "object",
+																			"$ref": "#/components/schemas/attributes/properties/electrical/properties/ac/properties/current"
+																		},
+																		"power": {
+																			"type": "object",
+																			"$ref": "#/components/schemas/attributes/properties/electrical/properties/ac/properties/power"
+																		},
+																		"energy": {
+																			"type": "object",
+																			"$ref": "#/components/schemas/attributes/properties/electrical/properties/ac/properties/energy"
+																		}
+																	}
+																},
+																"neutral": {
+																	"title": "Neutral",
+																	"description": "Neutral Description",
+																	"type": "object",
+																	"properties": {
+																		"current": {
+																			"type": "object",
+																			"$ref": "#/components/schemas/attributes/properties/electrical/properties/ac/properties/current"
+																		}
+																	}
+																},
+																"frequency": {
+																	"$ref": "#/components/schemas/attributes/properties/electrical/properties/ac/properties/frequency"
+																}
+															}
+														}
+													}
+												},
+												"thermal": {
+													"title": "Thermal",
+													"description": "Thermal Description",
+													"type": "object",
+													"properties": {
+														"lid": {
+															"title": "Lid",
+															"description": "Lid Description",
+															"type": "object",
+															"properties": {
+																"temperature": {
+																	"$ref": "#/components/schemas/attributes/properties/thermal/properties/temperature"
+																}
+															}
+														},
+														"radiator": {
+															"title": "Lid",
+															"description": "Lid Description",
+															"type": "object",
+															"properties": {
+																"temperature": {
+																	"$ref": "#/components/schemas/attributes/properties/thermal/properties/temperature"
+																}
+															}
+														}
+													}
+												}
+											}
+										},
+										"timestamp": {
+											"type": "integer",
+											"description": "The Unix epoch (or Unix time or POSIX time or Unix timestamp) is the number of seconds that have elapsed since January 1, 1970 (midnight UTC/GMT)."
+										}
+									}
+								}
+							}
+						}
+					}
+				},
+				"responses": {
+					"200": {
+						"description": "Successful operation",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/response"
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	},
+	"components": {
+		"schemas": {
+			"attributes": {
+				"type": "object",
+				"additionalProperties": false,
+				"properties": {
+					"electrical": {
+						"type": "object",
+						"additionalProperties": false,
+						"properties": {
+							"ac": {
+								"type": "object",
+								"additionalProperties": false,
+								"properties": {
+									"frequency": {
+										"type": "object",
+										"additionalProperties": false,
+										"properties": {
+											"instantaneous": {
+												"type": "number",
+												"minimum": 0,
+												"maximum": 100,
+												"multipleOf": 0.001,
+												"description": "\n> **Unit:** \n>\n>Hertz (Hz)\n>\n>Hertz (Hz) measures the frequency of oscillationin the electrical grid, indicating the number of cycles per second. In standard systems, common frequencies are 50 Hz or 60 Hz."
+											}
+										},
+										"name": "Frequency",
+										"summary": "Frequency",
+										"description": "The number of cycles per second in an alternating current (AC) system, measured in Hertz (Hz)."
+									},
+									"voltage": {
+										"type": "object",
+										"additionalProperties": false,
+										"properties": {
+											"rms": {
+												"type": "number",
+												"minimum": 0,
+												"maximum": 100000,
+												"multipleOf": 0.001,
+												"name": "RMS",
+												"summary": "RMS",
+												"description": "Voltage RMS (Root Mean Square), the square root of the arithmetic mean of the squared values of a periodic waveform. It represents the effective value of voltage in an AC system.\n> **Unit:** \n>\n>Volt (V)\n>\n>Volt (V) is a unit of electric potential difference between two points in an AC circuit."
+											},
+											"waveform_peak": {
+												"type": "number",
+												"minimum": 0,
+												"maximum": 100000,
+												"multipleOf": 0.001,
+												"name": "Waveform Peak",
+												"summary": "Waveform Peak",
+												"description": "Maximum value of the voltage within individual cycles during a 1-second timeframe. In a 230V AC line, the nominal peak voltage may reach 325 V.\n> **Unit:** \n>\n>Volt (V)\n>\n>Volt (V) is a unit of electric potential difference between two points in an AC circuit."
+											},
+											"crest_factor": {
+												"type": "number",
+												"minimum": 0,
+												"maximum": 1000,
+												"multipleOf": 0.001,
+												"name": "Crest Factor",
+												"summary": "Crest Factor",
+												"description": "Ratio of the peak value to the RMS value of a waveform. A pure sine wave has a crest factor of 1.414.\n> **Unit:** \n>\n>Crest factor (CF)\n>\n>Crest factor is a dimensionless ratio between the peak and RMS values of a waveform."
+											},
+											"thd": {
+												"type": "object",
+												"additionalProperties": false,
+												"properties": {
+													"rms": {
+														"type": "number",
+														"minimum": 0,
+														"maximum": 100,
+														"multipleOf": 0.001,
+														"name": "Relative to RMS",
+														"summary": "Relative to RMS",
+														"description": "THD-V based on RMS. Indicates quality of voltage. High values can affect sensitive equipment.\n> **Unit:** \n>\n>Percent (% THDr)\n>\n>THD relative to RMS voltage, expressed as a percentage, denoted as % THDr."
+													},
+													"fundamental": {
+														"type": "number",
+														"minimum": 0,
+														"maximum": 10000,
+														"multipleOf": 0.001,
+														"name": "Relative to Fundamental",
+														"summary": "Relative to Fundamental",
+														"description": "THD-V based on Fundamental frequency. Focuses on distortion from base AC frequency. Useful for filtering decisions.\n> **Unit:** \n>\n>Percent (% THDf)\n>\n>THD relative to the fundamental frequency, expressed as a percentage, denoted as % THDf."
+													}
+												},
+												"name": "THD-V",
+												"summary": "THD-V",
+												"description": "THD-V (Total Harmonic Distortion in Voltage) measures how much voltage waveform deviates from a pure sine wave. High levels usually originate from supply distortions or nonlinear loads. Can affect sensitive devices."
+											},
+											"spectrum": {
+												"type": "array",
+												"items": {
+													"type": "object",
+													"additionalProperties": false,
+													"properties": {
+														"centroid": {
+															"type": "number",
+															"minimum": 0,
+															"maximum": 1000000,
+															"multipleOf": 1,
+															"description": "\n> **Unit:** \n>\n>Hertz (Hz)\n>\n>Hertz (Hz) measures the frequency of oscillationin the electrical grid, indicating the number of cycles per second. In standard systems, common frequencies are 50 Hz or 60 Hz."
+														},
+														"range": {
+															"type": "number",
+															"minimum": 0,
+															"maximum": 100000,
+															"multipleOf": 1,
+															"description": "\n> **Unit:** \n>\n>Hertz (Hz)\n>\n>Hertz (Hz) measures the frequency of oscillationin the electrical grid, indicating the number of cycles per second. In standard systems, common frequencies are 50 Hz or 60 Hz."
+														},
+														"magnitude": {
+															"type": "number",
+															"minimum": 0,
+															"maximum": 100000,
+															"multipleOf": 0.001,
+															"description": "\n> **Unit:** \n>\n>Volt (V)\n>\n>Volt (V) is a unit of electric potential difference between two points in an AC circuit."
+														}
+													}
+												},
+												"name": "Spectrum",
+												"summary": "Spectrum",
+												"description": "Representation of voltage RMS in the frequency domain, showing distribution across various frequency components."
+											}
+										},
+										"name": "Voltage",
+										"summary": "Voltage",
+										"description": "Voltage in an AC system is the electric potential difference between two points in the circuit. It oscillates between positive and negative values and can be measured as line-to-line (L-L) or line-to-neutral (L-N)."
+									},
+									"current": {
+										"type": "object",
+										"additionalProperties": false,
+										"properties": {
+											"rms": {
+												"type": "number",
+												"minimum": 0,
+												"maximum": 100000,
+												"multipleOf": 0.001,
+												"name": "RMS",
+												"summary": "RMS",
+												"description": "Current RMS (Root Mean Square) is the square root of the arithmetic mean of the squared values of a periodic waveform. It represents the effective value of current in an AC system.\n> **Unit:** \n>\n>Ampere (A)\n>\n>Ampere (A) is the unit of electric current in AC systems, indicating the flow of charge."
+											},
+											"waveform_peak": {
+												"type": "number",
+												"minimum": 0,
+												"maximum": 100000,
+												"multipleOf": 0.001,
+												"name": "Waveform Peak",
+												"summary": "Waveform Peak",
+												"description": "Maximum value of the current within individual cycles during a 1-second timeframe. In a 10A AC line, the nominal peak current may reach 14.14A.\n> **Unit:** \n>\n>Ampere (A)\n>\n>Ampere (A) is the unit of electric current in AC systems, indicating the flow of charge."
+											},
+											"crest_factor": {
+												"type": "number",
+												"minimum": 0,
+												"maximum": 1000,
+												"multipleOf": 0.001,
+												"name": "Crest Factor",
+												"summary": "Crest Factor",
+												"description": "Ratio of the peak value to the RMS value of a waveform. A pure sine wave has a crest factor of 1.414.\n> **Unit:** \n>\n>Crest factor (CF)\n>\n>Crest factor is a dimensionless ratio between the peak and RMS values of a waveform."
+											},
+											"thd": {
+												"type": "object",
+												"additionalProperties": false,
+												"properties": {
+													"rms": {
+														"type": "number",
+														"minimum": 0,
+														"maximum": 100,
+														"multipleOf": 0.001,
+														"name": "Relative to RMS",
+														"summary": "Relative to RMS",
+														"description": "THD-I based on RMS. Shows distortion in current flow. High values can cause heating in conductors.\n> **Unit:** \n>\n>Percent (% THDr)\n>\n>THD relative to RMS voltage, expressed as a percentage, denoted as % THDr."
+													},
+													"fundamental": {
+														"type": "number",
+														"minimum": 0,
+														"maximum": 10000,
+														"multipleOf": 0.001,
+														"name": "Relative to Fundamental",
+														"summary": "Relative to Fundamental",
+														"description": "THD-I based on Fundamental frequency. Useful for targeting specific harmonics causing issues in a system.\n> **Unit:** \n>\n>Percent (% THDf)\n>\n>THD relative to the fundamental frequency, expressed as a percentage, denoted as % THDf."
+													}
+												},
+												"name": "THD-I",
+												"summary": "THD-I",
+												"description": "THD-I (Total Harmonic Distortion in Current) indicates how much the current waveform strays from a sine wave. Often caused by demand-side nonlinear loads. Can result in overheating and equipment stress."
+											},
+											"spectrum": {
+												"type": "array",
+												"items": {
+													"type": "object",
+													"properties": {
+														"centroid": {
+															"type": "number",
+															"minimum": 0,
+															"maximum": 1000000,
+															"multipleOf": 1,
+															"description": "\n> **Unit:** \n>\n>Hertz (Hz)\n>\n>Hertz (Hz) measures the frequency of oscillationin the electrical grid, indicating the number of cycles per second. In standard systems, common frequencies are 50 Hz or 60 Hz."
+														},
+														"range": {
+															"type": "number",
+															"minimum": 0,
+															"maximum": 1000000,
+															"multipleOf": 1,
+															"description": "\n> **Unit:** \n>\n>Hertz (Hz)\n>\n>Hertz (Hz) measures the frequency of oscillationin the electrical grid, indicating the number of cycles per second. In standard systems, common frequencies are 50 Hz or 60 Hz."
+														},
+														"magnitude": {
+															"type": "number",
+															"minimum": 0,
+															"maximum": 1000000,
+															"multipleOf": 0.001,
+															"description": "\n> **Unit:** \n>\n>Ampere (A)\n>\n>Ampere (A) is the unit of electric current in AC systems, indicating the flow of charge."
+														}
+													}
+												},
+												"name": "Spectrum",
+												"summary": "Spectrum",
+												"description": "Representation of current RMS in the frequency domain, showing distribution across various frequency components."
+											}
+										},
+										"name": "Current",
+										"summary": "Current",
+										"description": "Measures related to the the flow of electric charge in a circuit."
+									},
+									"power": {
+										"type": "object",
+										"additionalProperties": false,
+										"properties": {
+											"active": {
+												"type": "number",
+												"minimum": -10000000,
+												"maximum": 10000000,
+												"multipleOf": 0.001,
+												"name": "Active",
+												"summary": "Active",
+												"description": "Active power is the real power that does actual work, like turning a motor or powering a device. Measured in watts (W), it's the primary factor for energy billing.\n> **Unit:** \n>\n>Watt (W)\n>\n>Watt (W) is the unit of active power in AC electrical systems, used to quantify the rate of energy transfer."
+											},
+											"reactive": {
+												"type": "number",
+												"minimum": -10000000,
+												"maximum": 10000000,
+												"multipleOf": 0.001,
+												"name": "Reactive",
+												"summary": "Reactive",
+												"description": "Reactive power doesn't do work but supports the magnetic and electric fields in AC systems. Measured in volt-amperes reactive (VAR), it's essential for system stability but can lead to inefficiencies.\n> **Unit:** \n>\n>Volt-Ampere Reactive (VAR)\n>\n>Volt-Ampere Reactive (VAR) measures reactive power in AC systems. Important in systems with inductive loads like motors and transformers; excessive VAR can lead to higher utility charges and necessitates more robust infrastructure."
+											},
+											"apparent": {
+												"type": "number",
+												"minimum": 0,
+												"maximum": 10000000,
+												"name": "Apparent",
+												"summary": "Apparent",
+												"description": "Apparent power represents the total power flow in an AC circuit, combining active and reactive power. Measured in volt-amperes (VA), it's useful for sizing equipment and wiring but doesn't reflect real energy use.\n> **Unit:** \n>\n>Volt-Ampere (VA)\n>\n>Volt-Ampere (VA) is the unit for apparent power in an AC electrical system."
+											},
+											"power_factor": {
+												"type": "object",
+												"additionalProperties": false,
+												"properties": {
+													"total": {
+														"type": "number",
+														"minimum": -1000,
+														"maximum": 1000,
+														"name": "Total",
+														"summary": "Total",
+														"description": "The overall measure of electrical system efficiency, considering both displacement and distortion factors. A low total power factor may require infrastructure upgrades or power factor correction devices.\n> **Unit:** \n>\n>Power Factor (λ)\n>\n>Dimensionless ratio of active power (W) to apparent power (VA) in an AC circuit. It combines both displacement and distortion effects."
+													}
+												},
+												"name": "Power Factor",
+												"summary": "Power Factor",
+												"description": "Power factor measures the efficiency of converting electrical power to useful work, combining both the phase displacement between current and voltage and harmonic distortion. A low power factor necessitates larger network infrastructure to manage inefficiencies."
+											}
+										},
+										"name": "Power",
+										"summary": "Power",
+										"description": "Power in an AC system is the rate of energy transfer, affected by both voltage and current. It consists of active, reactive, and apparent components, each measured in specific units."
+									},
+									"energy": {
+										"type": "object",
+										"additionalProperties": false,
+										"properties": {
+											"active": {
+												"type": "object",
+												"additionalProperties": false,
+												"properties": {
+													"imported": {
+														"type": "number",
+														"minimum": 0,
+														"maximum": 1000000000000000,
+														"multipleOf": 0.001,
+														"name": "Imported",
+														"summary": "Imported",
+														"description": "Energy drawn from the grid. Directly impacts electricity bills. Typically measured in kWh.\n> **Unit:** \n>\n>Watt-hour (Wh)\n>\n>Watt-hour (Wh) units measure energy doing useful work, directly linked to billing."
+													},
+													"exported": {
+														"type": "number",
+														"properties": {},
+														"minimum": 0,
+														"maximum": 1000000000000000,
+														"multipleOf": 0.001,
+														"name": "Exported",
+														"summary": "Exported",
+														"description": "Energy sent back to the grid. Can generate credits or offset costs. Typically measured in kWh.\n> **Unit:** \n>\n>Watt-hour (Wh)\n>\n>Watt-hour (Wh) units measure energy doing useful work, directly linked to billing."
+													}
+												},
+												"name": "Active",
+												"summary": "Active",
+												"description": "Active energy represents the actual work done. Directly impacts billing as utilities usually charge based on this consumption."
+											},
+											"reactive": {
+												"type": "object",
+												"additionalProperties": false,
+												"properties": {
+													"imported": {
+														"type": "number",
+														"minimum": 0,
+														"maximum": 1000000000000000,
+														"multipleOf": 0.001,
+														"name": "Imported",
+														"summary": "Imported",
+														"description": "Reactive energy drawn from the grid to maintain magnetic fields in inductive loads. Could lead to power factor penalties. Typically measured in kVARh.\n> **Unit:** \n>\n>Volt-Ampere Reactive hour (VARh)\n>\n>Volt-Ampere Reactive hour (VARh) units measure energy stored and returned to the system."
+													},
+													"exported": {
+														"type": "number",
+														"properties": {},
+														"minimum": 0,
+														"maximum": 1000000000000000,
+														"multipleOf": 0.001,
+														"name": "Exported",
+														"summary": "Exported",
+														"description": "Reactive energy sent back to the grid. Not usually credited. May indicate over-compensation of power factor correction devices. Typically measured in kVARh.\n> **Unit:** \n>\n>Volt-Ampere Reactive hour (VARh)\n>\n>Volt-Ampere Reactive hour (VARh) units measure energy stored and returned to the system."
+													}
+												},
+												"name": "Reactive",
+												"summary": "Reactive",
+												"description": "Reactive energy signifies energy stored and released back to the grid. Some utilities may charge for excessive reactive energy since it can burden the system without doing useful work."
+											},
+											"apparent": {
+												"type": "object",
+												"additionalProperties": false,
+												"properties": {
+													"imported": {
+														"type": "number",
+														"properties": {},
+														"minimum": 0,
+														"maximum": 1000000000000000,
+														"multipleOf": 0.001,
+														"name": "Imported",
+														"summary": "Imported",
+														"description": "Apparent energy drawn from the grid. Can be a factor in demand or capacity charges. Typically measured in kVAh.\n> **Unit:** \n>\n>Volt-Ampere hour (VAh)\n>\n>Volt-Ampere hour (VAh) units measure the vector sum of active and reactive energy, provides overall view of energy flow."
+													},
+													"exported": {
+														"type": "number",
+														"properties": {},
+														"minimum": 0,
+														"maximum": 1000000000000000,
+														"multipleOf": 0.001,
+														"name": "Exported",
+														"summary": "Exported",
+														"description": "Apparent energy sent back to the grid. Rarely credited, but informs system's export capacity. Typically measured in kVAh.\n> **Unit:** \n>\n>Volt-Ampere hour (VAh)\n>\n>Volt-Ampere hour (VAh) units measure the vector sum of active and reactive energy, provides overall view of energy flow."
+													}
+												},
+												"name": "Apparent",
+												"summary": "Apparent",
+												"description": "Apparent energy is the vector sum of active and reactive energy. Although not directly billed, high levels may necessitate system upgrades, leading to additional costs. Generally quantified in kilovolt-ampere-hours (kVAh)."
+											}
+										},
+										"name": "Energy",
+										"summary": "Energy",
+										"description": "Energy in an AC system quantifies the total work done over a period. It encompasses active, reactive, and apparent energy components."
+									}
+								},
+								"name": "AC System",
+								"summary": "AC System",
+								"description": "AC (Alternating Current), common in power grids, facilitate the long-distance transmission of electricity and is the standard for household and commercial electrical outlets."
+							}
+						},
+						"name": "Electrical",
+						"summary": "Electrical",
+						"description": "Parameters related to electrical systems."
+					},
+					"thermal": {
+						"type": "object",
+						"additionalProperties": false,
+						"properties": {
+							"temperature": {
+								"type": "number",
+								"minimum": -274,
+								"maximum": 5000,
+								"multipleOf": 0.001,
+								"name": "Temperature",
+								"summary": "Temperature",
+								"description": "Numeric values representing heat level. Measured in specified units like Celsius, Fahrenheit, or Kelvin.\n> **Unit:** \n>\n>Celsius (°C)\n>\n>Celsius, also known as centigrade, is a scale and unit of measurement for temperature."
+							}
+						},
+						"name": "Thermal",
+						"summary": "Thermal",
+						"description": "Parameters related to thermal systems."
+					}
+				}
+			},
+			"response": {
+				"type": "object",
+				"properties": {
+					"warnings": {
+						"type": "array",
+						"items": {
+							"anyOf": [{
+								"const": "accuracy_low_input",
+								"name": "Low input",
+								"description": "Enough input data to do the calculation but no enough for high accuracy"
+							}, {
+								"const": "accuracy_low_weather",
+								"name": "Low weather",
+								"description": "Don't have enough weather data to do the calculation but no enough for high accuracy"
+							}, {
+								"const": "bad_model_fit",
+								"name": "Bad model fit",
+								"description": "Model fit is for some reason bad, and caution should be taken with regard to its accuracy and decisions made based on it"
+							}]
+						}
+					},
+					"forecast": {
+						"type": "array",
+						"items": {
+							"type": "object",
+							"properties": {
+								"timestamp": {
+									"type": "integer",
+									"description": "The Unix epoch (or Unix time or POSIX time or Unix timestamp) is the number of seconds that have elapsed since January 1, 1970 (midnight UTC/GMT)."
+								},
+								"expected": {
+									"type": "number",
+									"minimum": -274,
+									"maximum": 5000,
+									"multipleOf": 0.001,
+									"name": "Temperature",
+									"summary": "Temperature",
+									"description": "Numeric values representing heat level. Measured in specified units like Celsius, Fahrenheit, or Kelvin.\n> **Unit:** \n>\n>Celsius (°C)\n>\n>Celsius, also known as centigrade, is a scale and unit of measurement for temperature."
+								},
+								"lower": {
+									"type": "number",
+									"minimum": -274,
+									"maximum": 5000,
+									"multipleOf": 0.001,
+									"name": "Temperature",
+									"summary": "Temperature",
+									"description": "Numeric values representing heat level. Measured in specified units like Celsius, Fahrenheit, or Kelvin.\n> **Unit:** \n>\n>Celsius (°C)\n>\n>Celsius, also known as centigrade, is a scale and unit of measurement for temperature."
+								},
+								"upper": {
+									"type": "number",
+									"minimum": -274,
+									"maximum": 5000,
+									"multipleOf": 0.001,
+									"name": "Temperature",
+									"summary": "Temperature",
+									"description": "Numeric values representing heat level. Measured in specified units like Celsius, Fahrenheit, or Kelvin.\n> **Unit:** \n>\n>Celsius (°C)\n>\n>Celsius, also known as centigrade, is a scale and unit of measurement for temperature."
+								},
+								"quantile": {
+									"type": "number",
+									"minimum": 0,
+									"maximum": 100,
+									"multipleOf": 0.1,
+									"name": "Quantile",
+									"summary": "Quantile",
+									"description": "Quantile %"
+								}
+							},
+							"patternProperties": {
+								"^contributer_": {
+									"type": "number",
+									"minimum": 0,
+									"maximum": 100,
+									"multipleOf": 0.1,
+									"name": "Contributer %",
+									"summary": "Contributer %",
+									"description": "Contributer %"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"responses": {},
+		"parameters": {},
+		"examples": {},
+		"requestBodies": {},
+		"headers": {},
+		"securitySchemes": {
+			"personal_token": {
+				"description": "Personal Access Token",
+				"type": "http",
+				"scheme": "bearer"
+			}
+		},
+		"links": {}
+	},
+	"security": [{
+		"personal_token": []
+	}]
+}
