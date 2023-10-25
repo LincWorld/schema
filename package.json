@@ -1,16 +1,19 @@
 {
   "name": "@lincworld/schema",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "",
-  "main": "index.js",
-  "private": true,
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/geojson/schema.git"
-  },
+  "main": "index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Afzaal Ameer <afzaal@linc.world>",
-  "license": "LICENSE.md"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LincWorld/schema.git"
+  },
+  "author": "Linc",
+  "license": "AGPL-3.0",
+  "bugs": {
+    "url": "https://github.com/LincWorld/schema/issues"
+  },
+  "homepage": "https://github.com/LincWorld/schema#readme"
 }
