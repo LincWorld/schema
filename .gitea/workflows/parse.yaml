@@ -11,6 +11,9 @@ on:
 
 jobs:
   Parse-Xmind:
+    concurrency:
+      group: main
+      cancel-in-progress: true
     permissions:
       # Give the default GITHUB_TOKEN write permission to commit and push the
       # added or changed files to the repository.
