@@ -26,8 +26,14 @@ jobs:
       - run: echo "Compiling..."
       - run: npm install
       - run: npm run build
+      - run: git branch --delete gh-pages
+      - run: git branch gh-pages main
+      - run: git checkout gh-pages
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
+          branch: gh-pages
+          skip_checkout: true
+          push_options: '--force'
           commit_message: Publish pages
           commit_user_name: Actions Bot
           commit_user_email: actions-bot@users.noreply.github.com
