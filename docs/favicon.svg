@@ -1,0 +1,61 @@
+<svg
+	width="72"
+	height="72"
+	viewBox="0 0 72 72"
+	fill="none"
+	xmlns="http://www.w3.org/2000/svg"
+	><defs
+		><style>
+			.cls-1 {
+				fill: url("#logo-gradient-animated");
+			}
+		</style>
+		<linearGradient
+			id="logo-gradient-animated"
+			x1="0%"
+			y1="100%"
+			x2="100%"
+			y2="0%"
+		>
+			<stop offset="0%" stop-color="#0da7d4">
+				<animate
+					attributeName="stop-color"
+					values="#0da7d4; #6AE5D7;#0da7d4"
+					dur="6s"
+					repeatCount="indefinite"
+				/>
+			</stop>
+			<stop offset="50%" stop-color="#0da7d4">
+				<animate
+					attributeName="stop-color"
+					values="#0da7d4; #6AE5D7;#0da7d4"
+					dur="12s"
+					repeatCount="indefinite"
+				/>
+			</stop>
+			<stop offset="100%" stop-color="#6AE5D7">
+				<animate
+					attributeName="stop-color"
+					values="#6AE5D7; #0da7d4; #6AE5D7"
+					dur="6s"
+					repeatCount="indefinite"
+				/>
+			</stop>
+			<animateTransform
+				attributeName="gradientTransform"
+				attributeType="XML"
+				type="rotate"
+				from="0"
+				to="360"
+				dur="24s"
+				repeatCount="indefinite"
+			/>
+		</linearGradient>
+		<linearGradient id="logo-gradient" x1="0%" y1="100%" x2="100%" y2="0%">
+			<stop offset="0%" stop-color="#6AE5D7" />
+
+			<stop offset="100%" stop-color="#0da7d4" />
+		</linearGradient>
+	</defs>
+	<circle cx="36" cy="36" r="36" class="cls-1"/>
+</svg>
