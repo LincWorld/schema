@@ -637,6 +637,88 @@
                   }
                 },
                 "type": "object"
+              },
+              {
+                "properties": {
+                  "data": {
+                    "description": "Parameters for identification, information and configuration of hardware devices.",
+                    "name": "Device",
+                    "properties": {
+                      "linc": {
+                        "description": "Hardware related parameters for a Linc node.",
+                        "name": "Linc Node",
+                        "properties": {
+                          "dataplan": {
+                            "description": "Settings and parameters that define how a Linc node communicates and transfers data, including factors like the frequency of transmissions, storage preferences, platform access and more.",
+                            "name": "Dataplan",
+                            "properties": {
+                              "mode": {
+                                "default": "platform",
+                                "description": "Choice of data handling strategy for a Linc node, influencing both how the data is processed and the associated costs.",
+                                "name": "Mode",
+                                "oneOf": [
+                                  {
+                                    "const": "platform",
+                                    "description": "All collected data is stored, analysed, and visualised on the Linc platform, with full programmatic access through API and MQTT.",
+                                    "name": "Platform"
+                                  },
+                                  {
+                                    "const": "relay",
+                                    "description": "Data access only via API or MQTT channels for third-party storage and processing.",
+                                    "name": "Relay"
+                                  },
+                                  {
+                                    "const": "local",
+                                    "description": "On-premise data handling via the local network. The node has no connection to the Linc server.",
+                                    "name": "Local"
+                                  }
+                                ],
+                                "type": "string"
+                              },
+                              "reporting_interval": {
+                                "default": 1,
+                                "description": "The frequency at which a Linc node sends data, determining how often updates or readings are provided.\n\n> **Unit:** \n>\n>Second (s)\n>\n>Duration of reporting interval measured in seconds.",
+                                "name": "Reporting Interval",
+                                "oneOf": [
+                                  {
+                                    "const": 1,
+                                    "description": "Data is reported to server at 1 second intervals.",
+                                    "name": "1 second"
+                                  }
+                                ],
+                                "type": "integer"
+                              }
+                            },
+                            "type": "object"
+                          },
+                          "label": {
+                            "description": "User-specified name or identifier for a Linc node, allowing for easy differentiation  within a system or network.",
+                            "example": "Main electrical panel",
+                            "maxLength": 32,
+                            "minLength": 1,
+                            "name": "Label",
+                            "type": "string"
+                          }
+                        },
+                        "type": "object"
+                      }
+                    },
+                    "title": "Device",
+                    "type": "object"
+                  },
+                  "timestamp": {
+                    "description": "abc... unix\n\n> **Unit:** \n>\n>Second (s)\n>\n>abc",
+                    "example": 1696010102,
+                    "maximum": 10000000000,
+                    "minimum": 0,
+                    "multipleOf": 0.000001,
+                    "name": "Timestamp",
+                    "summary": "Timestamp",
+                    "title": "Timestamp",
+                    "type": "number"
+                  }
+                },
+                "type": "object"
               }
             ]
           }
@@ -1084,6 +1166,36 @@
                         "const": 60,
                         "description": "Data is reported to server at 1 minute intervals.",
                         "name": "1 minute"
+                      }
+                    ],
+                    "title": "Reporting Interval",
+                    "type": "integer"
+                  },
+                  "timestamp": {
+                    "description": "abc... unix\n\n> **Unit:** \n>\n>Second (s)\n>\n>abc",
+                    "example": 1696010102,
+                    "maximum": 10000000000,
+                    "minimum": 0,
+                    "multipleOf": 0.000001,
+                    "name": "Timestamp",
+                    "summary": "Timestamp",
+                    "title": "Timestamp",
+                    "type": "number"
+                  }
+                },
+                "type": "object"
+              },
+              {
+                "properties": {
+                  "data": {
+                    "default": 1,
+                    "description": "The frequency at which a Linc node sends data, determining how often updates or readings are provided.\n\n> **Unit:** \n>\n>Second (s)\n>\n>Duration of reporting interval measured in seconds.",
+                    "name": "Reporting Interval",
+                    "oneOf": [
+                      {
+                        "const": 1,
+                        "description": "Data is reported to server at 1 second intervals.",
+                        "name": "1 second"
                       }
                     ],
                     "title": "Reporting Interval",
@@ -45473,11 +45585,6 @@
                                         "const": 1,
                                         "description": "Data is reported to server at 1 second intervals.",
                                         "name": "1 second"
-                                      },
-                                      {
-                                        "const": 60,
-                                        "description": "Data is reported to server at 1 minute intervals.",
-                                        "name": "1 minute"
                                       }
                                     ],
                                     "summary": "Reporting Interval",
@@ -54326,11 +54433,6 @@
                                         "const": 1,
                                         "description": "Data is reported to server at 1 second intervals.",
                                         "name": "1 second"
-                                      },
-                                      {
-                                        "const": 60,
-                                        "description": "Data is reported to server at 1 minute intervals.",
-                                        "name": "1 minute"
                                       }
                                     ],
                                     "summary": "Reporting Interval",
