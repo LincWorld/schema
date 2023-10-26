@@ -20397,69 +20397,65 @@
 						"content": {
 							"application/json": {
 								"schema": {
-									"oneOf": [
-										{
+									"properties": {
+										"_links": {
 											"properties": {
-												"_links": {
-													"properties": {
-														"self": {
-															"examples": [
-																"/d0c80c56-fd5f-4278-8b10-28959f4daf26/nodes/1004/channels/t1/thermal/temperature"
-															],
-															"format": "uri",
-															"type": "string"
-														}
+												"self": {
+													"examples": [
+														"/d0c80c56-fd5f-4278-8b10-28959f4daf26/nodes/1004/channels/t1/thermal/temperature"
+													],
+													"format": "uri",
+													"type": "string"
+												}
+											},
+											"type": "object"
+										},
+										"response": {
+											"items": {
+												"prefixItems": [
+													{
+														"description": "abc... unix\n\n> **Unit:** \n>\n>Second (s)\n>\n>abc",
+														"example": 1696010102,
+														"maximum": 10000000000,
+														"minimum": 0,
+														"multipleOf": 0.000001,
+														"name": "Timestamp",
+														"summary": "Timestamp",
+														"title": "Timestamp",
+														"type": "number"
 													},
-													"type": "object"
-												},
-												"response": {
-													"items": {
-														"prefixItems": [
-															{
-																"description": "abc... unix\n\n> **Unit:** \n>\n>Second (s)\n>\n>abc",
-																"example": 1696010102,
-																"maximum": 10000000000,
-																"minimum": 0,
-																"multipleOf": 0.000001,
-																"name": "Timestamp",
-																"summary": "Timestamp",
-																"title": "Timestamp",
-																"type": "number"
-															},
-															{
-																"description": "Numeric values representing heat level. Measured in specified units like Celsius, Fahrenheit, or Kelvin.\n\n> **Unit:** \n>\n>Celsius (°C)\n>\n>Celsius, also known as centigrade, is a scale and unit of measurement for temperature.",
-																"example": 27.2,
-																"maximum": 5000,
-																"minimum": -274,
-																"multipleOf": 0.001,
-																"name": "Temperature",
-																"title": "Temperature",
-																"type": "number"
-															}
-														],
-														"type": "array"
-													},
+													{
+														"description": "Numeric values representing heat level. Measured in specified units like Celsius, Fahrenheit, or Kelvin.\n\n> **Unit:** \n>\n>Celsius (°C)\n>\n>Celsius, also known as centigrade, is a scale and unit of measurement for temperature.",
+														"example": 27.2,
+														"maximum": 5000,
+														"minimum": -274,
+														"multipleOf": 0.001,
+														"name": "Temperature",
+														"title": "Temperature",
+														"type": "number"
+													}
+												],
+												"type": "array"
+											},
+											"prefixItems": [
+												{
 													"prefixItems": [
 														{
-															"prefixItems": [
-																{
-																	"const": "timestamp",
-																	"type": "string"
-																},
-																{
-																	"const": "temperature",
-																	"type": "string"
-																}
-															],
-															"type": "array"
+															"const": "timestamp",
+															"type": "string"
+														},
+														{
+															"const": "temperature",
+															"type": "string"
 														}
 													],
 													"type": "array"
 												}
-											},
-											"type": "object"
+											],
+											"type": "array"
 										}
-									]
+									},
+									"type": "object"
 								}
 							}
 						},
@@ -20498,69 +20494,65 @@
 						"content": {
 							"application/json": {
 								"schema": {
-									"oneOf": [
-										{
+									"properties": {
+										"_links": {
 											"properties": {
-												"_links": {
-													"properties": {
-														"self": {
-															"examples": [
-																"/d0c80c56-fd5f-4278-8b10-28959f4daf26/nodes/1004/channels/t2/thermal/temperature"
-															],
-															"format": "uri",
-															"type": "string"
-														}
+												"self": {
+													"examples": [
+														"/d0c80c56-fd5f-4278-8b10-28959f4daf26/nodes/1004/channels/t2/thermal/temperature"
+													],
+													"format": "uri",
+													"type": "string"
+												}
+											},
+											"type": "object"
+										},
+										"response": {
+											"items": {
+												"prefixItems": [
+													{
+														"description": "abc... unix\n\n> **Unit:** \n>\n>Second (s)\n>\n>abc",
+														"example": 1696010102,
+														"maximum": 10000000000,
+														"minimum": 0,
+														"multipleOf": 0.000001,
+														"name": "Timestamp",
+														"summary": "Timestamp",
+														"title": "Timestamp",
+														"type": "number"
 													},
-													"type": "object"
-												},
-												"response": {
-													"items": {
-														"prefixItems": [
-															{
-																"description": "abc... unix\n\n> **Unit:** \n>\n>Second (s)\n>\n>abc",
-																"example": 1696010102,
-																"maximum": 10000000000,
-																"minimum": 0,
-																"multipleOf": 0.000001,
-																"name": "Timestamp",
-																"summary": "Timestamp",
-																"title": "Timestamp",
-																"type": "number"
-															},
-															{
-																"description": "Numeric values representing heat level. Measured in specified units like Celsius, Fahrenheit, or Kelvin.\n\n> **Unit:** \n>\n>Celsius (°C)\n>\n>Celsius, also known as centigrade, is a scale and unit of measurement for temperature.",
-																"example": 27.2,
-																"maximum": 5000,
-																"minimum": -274,
-																"multipleOf": 0.001,
-																"name": "Temperature",
-																"title": "Temperature",
-																"type": "number"
-															}
-														],
-														"type": "array"
-													},
+													{
+														"description": "Numeric values representing heat level. Measured in specified units like Celsius, Fahrenheit, or Kelvin.\n\n> **Unit:** \n>\n>Celsius (°C)\n>\n>Celsius, also known as centigrade, is a scale and unit of measurement for temperature.",
+														"example": 27.2,
+														"maximum": 5000,
+														"minimum": -274,
+														"multipleOf": 0.001,
+														"name": "Temperature",
+														"title": "Temperature",
+														"type": "number"
+													}
+												],
+												"type": "array"
+											},
+											"prefixItems": [
+												{
 													"prefixItems": [
 														{
-															"prefixItems": [
-																{
-																	"const": "timestamp",
-																	"type": "string"
-																},
-																{
-																	"const": "temperature",
-																	"type": "string"
-																}
-															],
-															"type": "array"
+															"const": "timestamp",
+															"type": "string"
+														},
+														{
+															"const": "temperature",
+															"type": "string"
 														}
 													],
 													"type": "array"
 												}
-											},
-											"type": "object"
+											],
+											"type": "array"
 										}
-									]
+									},
+									"type": "object"
 								}
 							}
 						},
@@ -20599,69 +20591,65 @@
 						"content": {
 							"application/json": {
 								"schema": {
-									"oneOf": [
-										{
+									"properties": {
+										"_links": {
 											"properties": {
-												"_links": {
-													"properties": {
-														"self": {
-															"examples": [
-																"/d0c80c56-fd5f-4278-8b10-28959f4daf26/nodes/1004/channels/t3/thermal/temperature"
-															],
-															"format": "uri",
-															"type": "string"
-														}
+												"self": {
+													"examples": [
+														"/d0c80c56-fd5f-4278-8b10-28959f4daf26/nodes/1004/channels/t3/thermal/temperature"
+													],
+													"format": "uri",
+													"type": "string"
+												}
+											},
+											"type": "object"
+										},
+										"response": {
+											"items": {
+												"prefixItems": [
+													{
+														"description": "abc... unix\n\n> **Unit:** \n>\n>Second (s)\n>\n>abc",
+														"example": 1696010102,
+														"maximum": 10000000000,
+														"minimum": 0,
+														"multipleOf": 0.000001,
+														"name": "Timestamp",
+														"summary": "Timestamp",
+														"title": "Timestamp",
+														"type": "number"
 													},
-													"type": "object"
-												},
-												"response": {
-													"items": {
-														"prefixItems": [
-															{
-																"description": "abc... unix\n\n> **Unit:** \n>\n>Second (s)\n>\n>abc",
-																"example": 1696010102,
-																"maximum": 10000000000,
-																"minimum": 0,
-																"multipleOf": 0.000001,
-																"name": "Timestamp",
-																"summary": "Timestamp",
-																"title": "Timestamp",
-																"type": "number"
-															},
-															{
-																"description": "Numeric values representing heat level. Measured in specified units like Celsius, Fahrenheit, or Kelvin.\n\n> **Unit:** \n>\n>Celsius (°C)\n>\n>Celsius, also known as centigrade, is a scale and unit of measurement for temperature.",
-																"example": 27.2,
-																"maximum": 5000,
-																"minimum": -274,
-																"multipleOf": 0.001,
-																"name": "Temperature",
-																"title": "Temperature",
-																"type": "number"
-															}
-														],
-														"type": "array"
-													},
+													{
+														"description": "Numeric values representing heat level. Measured in specified units like Celsius, Fahrenheit, or Kelvin.\n\n> **Unit:** \n>\n>Celsius (°C)\n>\n>Celsius, also known as centigrade, is a scale and unit of measurement for temperature.",
+														"example": 27.2,
+														"maximum": 5000,
+														"minimum": -274,
+														"multipleOf": 0.001,
+														"name": "Temperature",
+														"title": "Temperature",
+														"type": "number"
+													}
+												],
+												"type": "array"
+											},
+											"prefixItems": [
+												{
 													"prefixItems": [
 														{
-															"prefixItems": [
-																{
-																	"const": "timestamp",
-																	"type": "string"
-																},
-																{
-																	"const": "temperature",
-																	"type": "string"
-																}
-															],
-															"type": "array"
+															"const": "timestamp",
+															"type": "string"
+														},
+														{
+															"const": "temperature",
+															"type": "string"
 														}
 													],
 													"type": "array"
 												}
-											},
-											"type": "object"
+											],
+											"type": "array"
 										}
-									]
+									},
+									"type": "object"
 								}
 							}
 						},
@@ -20700,69 +20688,65 @@
 						"content": {
 							"application/json": {
 								"schema": {
-									"oneOf": [
-										{
+									"properties": {
+										"_links": {
 											"properties": {
-												"_links": {
-													"properties": {
-														"self": {
-															"examples": [
-																"/d0c80c56-fd5f-4278-8b10-28959f4daf26/nodes/1004/channels/t4/thermal/temperature"
-															],
-															"format": "uri",
-															"type": "string"
-														}
+												"self": {
+													"examples": [
+														"/d0c80c56-fd5f-4278-8b10-28959f4daf26/nodes/1004/channels/t4/thermal/temperature"
+													],
+													"format": "uri",
+													"type": "string"
+												}
+											},
+											"type": "object"
+										},
+										"response": {
+											"items": {
+												"prefixItems": [
+													{
+														"description": "abc... unix\n\n> **Unit:** \n>\n>Second (s)\n>\n>abc",
+														"example": 1696010102,
+														"maximum": 10000000000,
+														"minimum": 0,
+														"multipleOf": 0.000001,
+														"name": "Timestamp",
+														"summary": "Timestamp",
+														"title": "Timestamp",
+														"type": "number"
 													},
-													"type": "object"
-												},
-												"response": {
-													"items": {
-														"prefixItems": [
-															{
-																"description": "abc... unix\n\n> **Unit:** \n>\n>Second (s)\n>\n>abc",
-																"example": 1696010102,
-																"maximum": 10000000000,
-																"minimum": 0,
-																"multipleOf": 0.000001,
-																"name": "Timestamp",
-																"summary": "Timestamp",
-																"title": "Timestamp",
-																"type": "number"
-															},
-															{
-																"description": "Numeric values representing heat level. Measured in specified units like Celsius, Fahrenheit, or Kelvin.\n\n> **Unit:** \n>\n>Celsius (°C)\n>\n>Celsius, also known as centigrade, is a scale and unit of measurement for temperature.",
-																"example": 27.2,
-																"maximum": 5000,
-																"minimum": -274,
-																"multipleOf": 0.001,
-																"name": "Temperature",
-																"title": "Temperature",
-																"type": "number"
-															}
-														],
-														"type": "array"
-													},
+													{
+														"description": "Numeric values representing heat level. Measured in specified units like Celsius, Fahrenheit, or Kelvin.\n\n> **Unit:** \n>\n>Celsius (°C)\n>\n>Celsius, also known as centigrade, is a scale and unit of measurement for temperature.",
+														"example": 27.2,
+														"maximum": 5000,
+														"minimum": -274,
+														"multipleOf": 0.001,
+														"name": "Temperature",
+														"title": "Temperature",
+														"type": "number"
+													}
+												],
+												"type": "array"
+											},
+											"prefixItems": [
+												{
 													"prefixItems": [
 														{
-															"prefixItems": [
-																{
-																	"const": "timestamp",
-																	"type": "string"
-																},
-																{
-																	"const": "temperature",
-																	"type": "string"
-																}
-															],
-															"type": "array"
+															"const": "timestamp",
+															"type": "string"
+														},
+														{
+															"const": "temperature",
+															"type": "string"
 														}
 													],
 													"type": "array"
 												}
-											},
-											"type": "object"
+											],
+											"type": "array"
 										}
-									]
+									},
+									"type": "object"
 								}
 							}
 						},
