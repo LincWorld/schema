@@ -26,6 +26,9 @@ jobs:
       - run: echo "Compiling..."
       - run: npm install
       - run: npm run build
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NODE_ENV: production
       - run: git branch gh-pages main
       - run: git checkout gh-pages
       - uses: stefanzweifel/git-auto-commit-action@v4

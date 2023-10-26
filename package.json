@@ -21,6 +21,6 @@
     "@asyncapi/generator": "^1.14.1",
     "@asyncapi/html-template": "^0.28.4",
     "gh-retrieve": "^1.1.2",
-    "github-download-directory": "^3.0.0"
+    "showdown": "^2.1.0"
   }
 }
