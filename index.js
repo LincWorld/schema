@@ -14,28 +14,23 @@ const generator = new Generator('@asyncapi/html-template', path.resolve(__dirnam
 
 
 const downloadSwagger = async () => {
-	await fs.stat('./docs/openapi/index.html').then((stat) => {
-		if (stat.isFile) {
-			console.log("Swagger already downloaded");
-			return;
-		}
-		return fetch("https://api.github.com/repos/swagger-api/swagger-ui/releases/latest").then((res) =>
-			res.json()
-		).then((res) => res.tag_name).then((tag) => {
-			return recursiveDownload({
-				author: "swagger-api", //repository owner
-				repo: "swagger-ui", //repository name
-				targetdir: "dist", //target directory to download
-				outdir: "docs/openapi", //directory to download in,
-				branch: tag
-			})
-		})
+	await fs.stat('./docs/openapi/index.html').catch(async () => {
+		const res = await fetch("https://api.github.com/repos/swagger-api/swagger-ui/releases/latest");
+		const res_1 = await res.json();
+		const tag = res_1.tag_name;
+		return await recursiveDownload({
+			author: "swagger-api",
+			repo: "swagger-ui",
+			targetdir: "dist",
+			outdir: "docs/openapi",
+			branch: tag
+		});
 	}).then(() => {
 		console.log("Swagger Downloaded Successfully");
 		Promise.all([
 			fs.readFile("./docs/openapi/swagger-initializer.js", "utf8").then((content) => {
 				content = content.replace(/petstore\.swagger\.io\/v2\/swagger\.json/m, "schema.linc.world/openapi.json");
-				content = content.replace(/layout:/m, "queryConfigEnabled: true,showCommonExtensions:true,docExpansion:\"none\",layout:");
+				content = content.replace(/  layout:/m, "  queryConfigEnabled: true,showCommonExtensions:true,docExpansion:\"none\",layout:");
 				fs.writeFile("./docs/openapi/swagger-initializer.js", content);
 			}),
 		])
